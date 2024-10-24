@@ -34,6 +34,19 @@
 #     "any.go":
 #       runner: go run
 
+prepare-commit-msg:
+  commands:
+    commitzen:
+      interactive: true
+      run: pnpm cz
+      env:
+        LEFTHOOK: 0
+
+# Use this to validate commit messages
+commit-msg:
+  commands:
+    "lint commit message":
+      run: yarn run commitlint --edit {1}
 
 pre-commit:
   commands:
